@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="{% static 'assets/images/new-logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/businessFrom.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/corporate.css' %}">
+    <!-- <link rel="stylesheet" href="./assets/css/Dummy.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -274,56 +275,54 @@
                     <input type="submit" value="Submit" style="display: none;" id="submitBtn">
                 </form> -->
             </div>
+            <div class="container">
+                <form action="{% url 'businessForm' %}" id="mainForm" method="POST">
+                    {% csrf_token %}
+                    <div class="step-row">
+                        <div id="progress"></div>
+                        <div class="step-col">step 1</div>
+                        <div class="step-col">step 2</div>
+                        <div class="step-col">step 3</div>
+                    </div>
+                    <div id="form1" class="form-section">
+                        <h2>Company Details</h2>
+                        <input type="text" placeholder="Company Name" name="companyName" required />
+                        <input type="text" placeholder="Nature Of Business" name="natureOfBusiness" required />
+                        <input type="text" placeholder="Website Address" name="WebsiteAddress" />
+                        <input type="text" placeholder="Year Of Company Established" name="YearCompanyWasEstablished" />
+                        <div class="btn-box">
+                            <button type="button" id="next1">Next</button>
+                        </div>
+                    </div>
+        
+                    <div id="form2" class="form-section" style="display: none">
+                        <h2>Contact Details</h2>
+                        <input type="text" placeholder="Name" name="contactName" required />
+                        <input type="text" placeholder="Job Title" name="jobTitle" required />
+                        <input type="text" placeholder="Department" name="department" />
+                        <input type="number" placeholder="Contact Number" name="telephoneNumber" required />
+                        <input type="email" placeholder="Email Address" name="emailAddress" required />
+                        <div class="btn-box">
+                            <button type="button" id="back1">Back</button>
+                            <button type="button" id="next2">Next</button>
+                        </div>
+                    </div>
+        
+                    <div id="form3" class="form-section" style="display: none">
+                        <h2>Account Details</h2>
+                        <input type="number" placeholder="Monthly Credit Amount" name="monthlyCreditAmount" />
+                        <input type="number" placeholder="Monthly Spend" name="monthlySpend" />
+                        <input type="text" placeholder="Authorized By" name="authorisedBy" required />
+        
+                        <!-- <input type="checkbox" id="terms-and-conditions" name="terms-and-conditions" required /><a href="BusinessT&C.html">Agree with the Terms & Conditions</a>: -->
+                        <div class="btn-box">
+                            <button type="button" id="back2">Back</button>
+                            <button type="submit" id="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-
-
-    <div class="container">
-        <form action="{% url 'businessForm' %}" id="mainForm" method="POST">
-            {% csrf_token %}
-            <div class="step-row">
-                <div id="progress"></div>
-                <div class="step-col">step 1</div>
-                <div class="step-col">step 2</div>
-                <div class="step-col">step 3</div>
-            </div>
-            <div id="form1" class="form-section">
-                <h2>Company Details</h2>
-                <input type="text" placeholder="Company Name" name="companyName" required />
-                <input type="text" placeholder="Nature Of Business" name="natureOfBusiness" required />
-                <input type="text" placeholder="Website Address" name="WebsiteAddress" />
-                <input type="text" placeholder="Year Of Company Established" name="YearCompanyWasEstablished" />
-                <div class="btn-box">
-                    <button type="button" id="next1">Next</button>
-                </div>
-            </div>
-
-            <div id="form2" class="form-section" style="display: none">
-                <h2>Contact Details</h2>
-                <input type="text" placeholder="Name" name="contactName" required />
-                <input type="text" placeholder="Job Title" name="jobTitle" required />
-                <input type="text" placeholder="Department" name="department" />
-                <input type="number" placeholder="Contact Number" name="telephoneNumber" required />
-                <input type="email" placeholder="Email Address" name="emailAddress" required />
-                <div class="btn-box">
-                    <button type="button" id="back1">Back</button>
-                    <button type="button" id="next2">Next</button>
-                </div>
-            </div>
-
-            <div id="form3" class="form-section" style="display: none">
-                <h2>Account Details</h2>
-                <input type="number" placeholder="Monthly Credit Amount" name="monthlyCreditAmount" />
-                <input type="number" placeholder="Monthly Spend" name="monthlySpend" />
-                <input type="text" placeholder="Authorized By" name="authorisedBy" required />
-
-                <!-- <input type="checkbox" id="terms-and-conditions" name="terms-and-conditions" required /><a href="BusinessT&C.html">Agree with the Terms & Conditions</a>: -->
-                <div class="btn-box">
-                    <button type="button" id="back2">Back</button>
-                    <button type="submit" id="submit">Submit</button>
-                </div>
-            </div>
-        </form>
     </div>
 
     <footer class="footer">
@@ -376,6 +375,7 @@
 
     <script src="{% static 'assets/js/corporate.js' %}"></script>
     <script src="{% static 'js/businessForm.js' %}"></script>
+    <!-- <script src="./assets/js/Dummy.js"></script> -->
 
     <!-- GSAP -->
 
